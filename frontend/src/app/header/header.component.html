@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="#"><b>Library</b></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <!-- <li class="nav-item">
+          <a class="nav-link" routerLink="" routerLinkActive="active" aria-current="page">Home</a>
+        </li> -->
+        <li class="nav-item">
+          <a class="nav-link" routerLink="books" routerLinkActive="active" *ngIf="_auth.loggedIn()">Books</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="addbook" routerLinkActive="active" *ngIf="_auth.loggedIn()">Add books</a>
+        </li>
+       
+      </ul>
+     
+      <li class="nav-item dropdown profile-dropdown me-4" *ngIf="_auth.loggedIn()">
+          <a class="nav-link dropdown-toggle text-light " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <div class="profile ">
+                  <img src="../../assets/images/profile.png" class="me-2">
+                  <label>{{title}}</label>
+              </div>
+          </a>
+          <ul class="dropdown-menu bg-warning" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#" (click)="_auth.logOut()">Logout</a></li>
+          </ul>
+        </li>
+
+
+        <button class="btn btn-outline-warning me-3" routerLink="signup" type="submit" *ngIf="!_auth.loggedIn()">Signup</button>
+        <button class="btn btn-outline-warning" routerLink="login" type="submit" *ngIf="!_auth.loggedIn()">Login</button>
+    </div>
+  </div>
+</nav>

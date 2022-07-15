@@ -1,0 +1,118 @@
+.books-section{
+    padding: 80px 0px;
+    min-height: 100vh;
+}
+.books-box{
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    border-radius: 10px;
+    overflow: hidden;
+    border:2px solid #0000007d;
+}
+.books-box h5{
+    font-weight: 600;
+}
+
+.books-box h6{
+    transition: 0.3s;
+    border-radius: 5px;
+    font-weight: 600;
+}
+.book-info{
+    padding: 4%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #ffffff;
+    color: #1c1c1c;
+    transition: 0.4s;
+}
+
+.books-box .img-box{
+   height: 330px;
+    transition: 0.4s;
+    padding: 4%;
+}
+.books-box img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: 0.4s;
+}
+.books-box:hover .book-info{
+    /* color: #1c1c1c;
+    background-color: #fff; */
+    background-color: #1c1c1c;
+    color: #ffffff;
+}
+.books-box:hover .img-box{
+    padding: 0;
+}
+/* .books-box:hover h6{
+    opacity: 0 !important;
+} */
+.books-box:hover .books-btn{
+
+    transform: scaleX(1);
+}
+.books-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transform: scaleX(0);
+    transition: 0.3s;
+}
+
+.books-box-2 .book-info{
+    order: 2;
+}
+.books-box-2 img{
+    order: 1;
+}
+
+.delete-box{
+    position: absolute;
+    background-color: #1c1c1c;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: none;
+    z-index: 5;
+}
+.delete-box .bx{
+    max-width: 350px;
+    margin: auto;
+    text-align: center;
+    top: 50%;
+    position: relative;
+    transform: translateY(-50%);
+}
+@media(max-width:768px){
+    .books-box {
+        flex-direction: column;
+    }
+    .img-box {
+        height: 400px !important;
+    }
+    .books-box img{
+        object-fit: fill;
+    }
+}
+@media(min-width:768px) and (max-width:992px){
+    .books-box img{
+        height: 100%;
+    }
+    .books-box {
+        height: auto !important;
+    }
+}
+/* .delete-box{
+    display: none;
+} */

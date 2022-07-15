@@ -1,0 +1,30 @@
+<div class="add-book-section" style="background-image: url(../../assets/images/bg-1.jpg);">
+    <form class="book-form" method="post" #bookform="ngForm" (ngSubmit)="AddBook()" enctype="multipart/form-data">
+        <h2 class="text-center mb-4">Add new book</h2>
+        <div class="form-floating mt-3" >
+            <input type="text" #bookname="ngModel" required class="form-control" name="Book_name" placeholder="book name" [(ngModel)]="Bookss.Bookname">
+            <label for="Book-name">Book name <span class="text-danger">*</span></label>
+        </div>
+
+        <small class="text-danger" *ngIf="bookname.invalid && bookname.touched">Book Name required</small>
+
+        <div class="form-floating mt-3">
+            <input type="text" class="form-control" required #author="ngModel" name="Author" placeholder="Author" [(ngModel)]="Bookss.Author">
+            <label for="Author">Author <span class="text-danger">*</span></label>
+        </div>
+        <small class="text-danger mb-2" *ngIf="author.invalid && author.touched">Author required</small>
+
+        
+        <div class="form-floating mt-3">
+            <input type="text" class="form-control" name="imgurl" placeholder="Author" [(ngModel)]="Bookss.Bookpic">
+            <label for="imgurl">Image Url</label>
+        </div>
+        <div class="form-floating mt-3">
+            <textarea class="form-control" placeholder="Description" name="Description" [(ngModel)]="Bookss.Description"></textarea>
+            <label for="Description">Description</label>
+        </div>
+
+        <input type="submit" value="Upload" [disabled]="bookform.invalid" class="btn btn-warning mt-3 ms-auto" name="images"  (click)="AddBook()"/>
+     </form>
+</div>
+

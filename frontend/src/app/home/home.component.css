@@ -1,0 +1,36 @@
+
+.slide{
+    min-height: 100vh;
+    display: flex;
+}
+.slider{
+    height: 100%;
+    background-size: cover !important;
+    position: relative;
+}
+.slider .container{
+    height: 100%;
+}
+.slider-info{
+    max-width: 700px;
+    padding: 30px;
+    background-color: #ffc10755;
+    padding: 40px 5%;
+    display: inline-flex;
+    flex-direction: column;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    margin-left: 50px;
+    border-radius: 30px;
+}
+@media (max-width:768px){
+    .slider-info{
+    margin-left: 0px;
+    padding: 30px;
+    }
+    .slider-info h3,.slider-info h5{
+        font-size: 18px;
+    }
+}

@@ -1,0 +1,31 @@
+<div class="update-book" style="background-image: url(../../assets/images/bg-1.jpg);">
+    <div class="container">
+        <form class="book-form" (ngSubmit)="editBook()" #editform="ngForm" enctype="multipart/form-data">
+            <h2 class="text-center mb-4">Edit book</h2>
+            <div class="form-floating">
+                <input type="text" class="form-control" required #bookname="ngModel" name="Book_name" placeholder="book name" [(ngModel)]="Books.Bookname">
+                <label for="Book-name">Book name <span class="text-danger">*</span></label>
+            </div>
+            <small class="text-danger" *ngIf="bookname.invalid && bookname.touched" >Book name Cant be blank</small>
+
+            <div class="form-floating mt-3">
+                <input type="text" #author="ngModel" required class="form-control" name="Author" placeholder="Author" [(ngModel)]="Books.Author">
+                <label for="Author" >Author <span class="text-danger">*</span></label>
+            </div>
+            <small class="text-danger" *ngIf="author.invalid && author.touched" >Author name Cant be blank</small>
+
+
+            <div class="form-floating mt-3">
+                <input type="text"  class="form-control" name="Bookpic" placeholder="Bookpic" [(ngModel)]="Books.Bookpic">
+                <label for="Bookpic">Image Url</label>
+            </div>
+        
+            <div class="form-floating mt-3">
+                <textarea class="form-control" placeholder="Description" name="Description" [(ngModel)]="Books.Description"></textarea>
+                <label for="Description">Description</label>
+            </div>
+        
+             <td><input type="submit" [disabled]="editform.invalid" class="btn btn-warning mt-3 ms-auto" value="Update" (click)="editBook()"/></td>    
+         </form>
+        </div>
+</div>

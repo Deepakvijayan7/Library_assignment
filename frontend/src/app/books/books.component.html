@@ -1,0 +1,38 @@
+<section class="books-section">
+    <div class="container">
+        <div class="row">
+
+             <div class="col-lg-6 mb-3 col-md-12" *ngFor='let i of Books'>
+
+         
+                <div class="books-box ">
+                                <div class="delete-box" [id]='i._id'>
+                                <div class="bx" >
+                                        <h5 class="text-light mb-3">Delete Book {{i.Bookname}}?</h5>
+                                        <div class="yes_no" >
+                                            <button class="btn btn-danger mx-1" (click)="deleteBook(i)">Yes</button>
+                                            <button class="btn btn-success mx-1" [id]='i._id' onclick="hide_delete_box(this.id)">No</button>
+                                        </div>
+                                </div>
+                                </div>
+                        <div class="img-box col-lg-4 col-md-6 ">
+                            <img  alt="Image not available" [src]='i.Bookpic'>
+                        </div>
+                        <div class="book-info col-lg-8 col-md-6 ">
+                            <h5>{{i.Bookname}}</h5>
+                            <p class="book-details-p">{{i.Description}} </p>
+                            <i>By <br><h6 class="d-inline-flex p-2">{{i.Author}}</h6></i>
+                            
+                            <div class="books-btn">
+                                <button class="btn btn-success mx-1" type="submit" (click)="editBook(i)">Update</button>
+                                <button class="btn btn-danger mx-1 delete_btn" [id]='i._id' type="submit" onclick="show_delete_box(this.id)">Delete</button>
+                            </div>
+                        </div>
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+    
+</section>

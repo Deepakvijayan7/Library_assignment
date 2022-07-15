@@ -1,0 +1,25 @@
+<!--Login-->
+<div class="login" style="background-image: url(../../assets/images/form-bg.webp);">
+    <div class="container">
+        <div class="form-box">
+            <form class="form-custom" (ngSubmit)="loginUser()">
+                <h2 class="text-warning text-center">Login</h2>
+               
+                <div class="">
+                    <input type="text" class="form-control" name="username" [(ngModel)]="user.username" placeholder="Username">
+                    <label id="signup_mail_error" class="error-label" style="color:red"></label>
+                </div>
+                <div class="">
+                    <input type="password" class="form-control" name="password" [(ngModel)]="user.password" placeholder="Password">
+                    <label id="login_pswd_error" class="error-label" style="color:red"></label>
+                </div>
+                <button type="submit " class="btn btn-warning w-100 p-3  rounded-pill mb-2">Login</button>
+            </form>
+                <a href="" class="my-3 d-block text-center text-danger">Forgot password</a>
+                
+              <p class="text-center">Not a member yet?<a href="signup.html"> signup here</a></p>
+        
+        </div>
+    </div>
+</div>
+<!--login ends-->

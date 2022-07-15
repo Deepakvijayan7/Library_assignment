@@ -1,0 +1,49 @@
+
+<!--  signup-->
+<div class="signup" style="background-image: url(../../assets/images/form-bg.webp);">
+  <div class="container">
+      <div class="form-box">
+          <form class="form-custom" [formGroup]="signupForm" >
+              <h2 class="text-warning text-center">Sign Up</h2>
+             
+              <div class="mb-3">
+                  <label for="username">Username</label>
+                  <input type="text" formControlName="username" [class.is-invalid]="signupForm.get('username')!.invalid && signupForm.get('username')!.touched"class="form-control" />
+                  <small [class.d-none]= "signupForm.get('username')!.valid || signupForm.get('username')!.untouched" class="text-danger"> Username is required </small>
+              </div>
+
+              <div class="mb-3" >
+                  <label for="email">E-mail</label>
+                  <input type="email" formControlName = "email" [class.is-invalid]="signupForm.get('email')!.invalid && signupForm.get('email')!.touched" class="form-control" />
+                  <div *ngIf="signupForm.get('email')!.invalid && signupForm.get('email')!.touched">
+                    <small class="text-danger" *ngIf="signupForm.get('email')!.errors?.['required']"> Email is required </small>
+                    <small class="text-danger" *ngIf="signupForm.get('email')!.errors?.['pattern']"> Enter a valid email</small>
+                  </div>
+               </div>
+              <div class="" >
+                  <label for="password">Password</label>
+                  <input type="password" formControlName = "password" class="form-control" [class.is-invalid]="signupForm.get('password')!.invalid && signupForm.get('password')!.touched" />
+                  <div *ngIf="signupForm.get('password')!.invalid && signupForm.get('password')!.touched">
+                    <small class="text-danger" *ngIf="signupForm.get('password')!.errors?.['required']"> Password is required </small>
+                    <small class="text-danger" *ngIf="signupForm.get('password')!.errors?.['minlength']" >Password should be atleast 8 characters</small><br>
+                    <small class="text-danger" *ngIf="signupForm.get('password')!.errors?.['pattern']">Password requires One upper case letter, One Lowercase letter and one digit </small>
+                  </div> 
+              </div>
+              
+              <div class="mb-3">
+                  <label for="password">Confirm Password</label>
+                  <input type="password" formControlName = "repassword" class="form-control" [class.is-invalid]="signupForm.get('repassword')!.invalid && signupForm.get('repassword')!.touched"/>
+                  <div *ngIf="signupForm.get('repassword')!.invalid && signupForm.get('repassword')!.touched">
+                  <small class="text-danger" *ngIf="signupForm.get('repassword')!.errors?.['required']"> Password is required </small>
+                  <small class="text-danger" *ngIf="signupForm.get('repassword')!.errors?.['confirmPasswordValidator']">Passwords don't match.</small>
+                  </div>
+               </div>
+               <button  name="signup" [disabled]="signupForm.get('username')!.invalid || signupForm.get('email')!.invalid || signupForm.get('password')!.invalid || signupForm.get('repassword')!.invalid" type="button" class="btn btn-warning w-100 p-3 mx-auto rounded-pill"(click)="signUp()">
+                  Sign Up</button>
+                   <br />
+          </form>
+          <p class="text-center m-3">already have an account? <a routerLink="login">log in here</a></p>
+      </div>
+  </div>
+</div>
+<!--signup ends -->
